@@ -2,7 +2,7 @@ Gem::Specification.new do |s|
   s.name = 'geocody'
   s.version = '1.1'
   s.summary = 'geocody'
-  s.description = 'Has custom Model/Result with array of Locations'
+  s.description = 'Convert mailing addresses into Lat,Long Coordinates'
   s.authors = ['APIMATIC', 'Zeeshan Ejaz Bhatti']
   s.email = 'zeeshan@apimatic.io'
   s.homepage = 'https://apimatic.io'
