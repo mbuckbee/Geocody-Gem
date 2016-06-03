@@ -4,59 +4,17 @@ module Geocody
   class Result
 
     # TODO: Write general description for this method
-    # @return [String]
+    # @return [Integer]
     attr_accessor :found
 
     # TODO: Write general description for this method
-    # @return [String]
-    attr_accessor :country
-
-    # TODO: Write general description for this method
-    # @return [String]
-    attr_accessor :country_code
-
-    # TODO: Write general description for this method
-    # @return [String]
-    attr_accessor :postal_code
-
-    # TODO: Write general description for this method
-    # @return [String]
-    attr_accessor :address
-
-    # TODO: Write general description for this method
-    # @return [String]
-    attr_accessor :city
-
-    # TODO: Write general description for this method
-    # @return [Float]
-    attr_accessor :latitude
-
-    # TODO: Write general description for this method
-    # @return [Float]
-    attr_accessor :longitude
-
-    # TODO: Write general description for this method
-    # @return [String]
-    attr_accessor :state
+    # @return [List of Location]
+    attr_accessor :locations
 
     def initialize(found = nil,
-                   country = nil,
-                   country_code = nil,
-                   postal_code = nil,
-                   address = nil,
-                   city = nil,
-                   latitude = nil,
-                   longitude = nil,
-                   state = nil)
+                   locations = nil)
       @found = found
-      @country = country
-      @country_code = country_code
-      @postal_code = postal_code
-      @address = address
-      @city = city
-      @latitude = latitude
-      @longitude = longitude
-      @state = state
+      @locations = locations
 
     end
 
@@ -77,24 +35,15 @@ module Geocody
       else
         # Extract variables from the hash
         found = hash["found"]
-        country = hash["country"]
-        country_code = hash["country_code"]
-        postal_code = hash["postal_code"]
-        address = hash["address"]
-        city = hash["city"]
-        latitude = hash["latitude"]
-        longitude = hash["longitude"]
-        state = hash["state"]
+        # Parameter is an array, so we need to iterate through it
+        locations = nil
+        if hash["locations"] != nil
+          locations = Array.new
+          hash["locations"].each{|structure| locations << Location.from_hash(structure)}
+        end
         # Create object from extracted values
         Result.new(found,
-                   country,
-                   country_code,
-                   postal_code,
-                   address,
-                   city,
-                   latitude,
-                   longitude,
-                   state)
+                   locations)
       end
     end
 
@@ -102,14 +51,7 @@ module Geocody
     def key_map
       hash = {}
       hash['found'] = found
-      hash['country'] = country
-      hash['country_code'] = country_code
-      hash['postal_code'] = postal_code
-      hash['address'] = address
-      hash['city'] = city
-      hash['latitude'] = latitude
-      hash['longitude'] = longitude
-      hash['state'] = state
+      hash['locations'] = locations.map(&:key_map)
       hash
     end
   end

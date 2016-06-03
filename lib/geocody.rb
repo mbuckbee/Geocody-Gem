@@ -15,3 +15,4 @@ require_relative 'geocody/controllers/api_controller.rb'
 
 # Models
 require_relative 'geocody/models/result.rb'
+require_relative 'geocody/models/location.rb'
