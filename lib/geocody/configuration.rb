@@ -6,7 +6,7 @@ module Geocody
     @base_uri = 'https://geocody.expeditedaddons.com'
 
     # Your API Key
-    @api_key = 'TODO: Replace'
+    @api_key = ENV['GEOCODY_API_KEY']
 
     # create the getters and setters
     class << self
