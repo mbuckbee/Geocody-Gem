@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = 'geocody'
-  s.version = '1.0'
+  s.version = '1.1'
   s.summary = 'geocody'
   s.description = 'Has custom Model/Result with array of Locations'
   s.authors = ['APIMATIC', 'Zeeshan Ejaz Bhatti']
