@@ -30,14 +30,12 @@
 ### Making a Request
 
 ```ruby
-require 'geocody'
+$ > require 'geocody'
+=> true
 
 # Note: the 'Controller' here is not a reference to Rails controllers
 # but an internal structure, won't interfere with your Rails app and will 
 # work fine in a standalone ruby app or another framework
-
-$ > require 'geocody'
-=> true
 
 $ > gc = Geocody::APIController.new
 => #<Geocody::APIController:0x007fd4cca9ef40>
@@ -79,7 +77,7 @@ $ > result.locations[0].longitude
 
 ## Installation
 
-```
+```ruby
 # In your Gemfile
 gem 'geocody', git: 'https://github.com/mbuckbee/Geocody-Gem.git'
 ```    
